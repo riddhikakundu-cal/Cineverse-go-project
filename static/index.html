@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎬 CineVerse - Movie Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>🎬 CineVerse - Movie Management System </h1>
+    <button class="auth-button" onclick="toggleModal()">Login / Sign Up</button>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Add a New Movie</h2>
+    <form id="movie-form">
+      <input type="text" id="title" placeholder="Title" required />
+      <input type="text" id="isbn" placeholder="ISBN" required />
+      <select id="genre">
+        <option value="">Select Genre</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Horror">Horror</option>
+        <option value="Romance">Romance</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Thriller">Thriller</option>
+      </select>
+      <input type="number" id="year" placeholder="Year" />
+      <input type="text" id="firstname" placeholder="Director First Name" />
+      <input type="text" id="lastname" placeholder="Director Last Name" />
+      <br />
+      <button type="submit">Add Movie</button>
+    </form>
+
+    <h2 class="section-title">Search Movies</h2>
+    <input type="text" id="search" placeholder="Search by title..." />
+    <button onclick="fetchMovies()">Search</button>
+
+    <h2 class="section-title">All Movies</h2>
+    <div id="movie-list" class="card-grid"></div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="auth-modal">
+    <div class="modal-content">
+      <div class="tab-switch">
+        <span id="login-tab" class="active" onclick="switchTab('login')">Login</span> | 
+        <span id="signup-tab" onclick="switchTab('signup')">Sign Up</span>
+      </div>
+      <div id="login-form">
+        <input type="text" placeholder="Username" id="login-username" />
+        <input type="password" placeholder="Password" id="login-password" />
+        <button onclick="login()">Login</button>
+      </div>
+      <div id="signup-form" style="display: none;">
+        <input type="text" placeholder="New Username" id="signup-username" />
+        <input type="password" placeholder="New Password" id="signup-password" />
+        <button onclick="signup()">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
